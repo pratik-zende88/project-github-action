@@ -47,3 +47,11 @@ jobs:
       with:
         name: trivy-report
         path: fs-report.txt
+
+
+    - name: Gitleaks installation
+      run: sudo apt install gitleaks -y
+
+    - name: Gitleaks Scanning of code  
+      run: gitleaks detect source . -r gitleaks-report.json -f json
+
